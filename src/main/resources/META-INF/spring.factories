@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=vip.appcity.celery.starter.config.CeleryAutoConfiguration
