@@ -9,9 +9,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 @ConfigurationProperties(prefix = "celery")
 public class CeleryProperties {
-    private String queue = "celery";
-    private Integer concurrency = 4;
-    private String broker = "amqp://guest:guest@localhost/";
-    private String backend = "";
+    private String queue ;
+    private Integer concurrency ;
+    private String broker ;
+    private String backend ;
 
 }
