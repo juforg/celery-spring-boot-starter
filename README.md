@@ -42,7 +42,7 @@ Snapshots are available from [Sonatype OSRH](https://oss.sonatype.org/content/gr
 ```
 
 
-## init config application.yml
+## init config int application.yml
 ```yaml
 celery:
   queue: "demo:celery"
@@ -54,19 +54,19 @@ celery:
 
 1. Start a celery worker as described in [First Steps with Celery][celery-py-start].
 2. define a worker task with python
-```Python
-@celery.task(name='test.dummy_task')
-def dummy_task(num):
-    print(num)
-    return "finished"
-```
-
-```java2. Call the task by name.
-
-    @Autowired
-    private Celery celery;
-    celery.submit("test.dummy_task", new Object[]{1});
-```
+    ```Python
+    @celery.task(name='test.dummy_task')
+    def dummy_task(num):
+        print(num)
+        return "finished"
+    ```
+3. Call the task by name in java
+    ```java
+    
+        @Autowired
+        private Celery celery;
+        celery.submit("test.dummy_task", new Object[]{1});
+    ```
 
 
 ## Relase notes
