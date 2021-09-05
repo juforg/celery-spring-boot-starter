@@ -11,11 +11,11 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Java for publishing to GitHub Packages
-        uses: actions/setup-java@v2
-        with:
-          java-version: '8'
-          distribution: 'adopt'
+#      - name: Set up Java for publishing to GitHub Packages
+#        uses: actions/setup-java@v2
+#        with:
+#          java-version: '8'
+#          distribution: 'adopt'
 #      - name: Publish to GitHub Packages
 #        run: mvn --batch-mode deploy
 #        env:
@@ -31,7 +31,7 @@ jobs:
       - name: Release Maven package
         uses: samuelmeuli/action-maven-publish@v1
         with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+#          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+#          gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
           nexus_username: ${{ secrets.OSSRH_USERNAME }}
           nexus_password: ${{ secrets.OSSRH_TOKEN }}
