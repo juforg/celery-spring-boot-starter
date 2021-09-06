@@ -11,15 +11,6 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
-#      - name: Set up Java for publishing to GitHub Packages
-#        uses: actions/setup-java@v2
-#        with:
-#          java-version: '8'
-#          distribution: 'adopt'
-#      - name: Publish to GitHub Packages
-#        run: mvn --batch-mode deploy
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Java for publishing to Maven Central Repository
         uses: actions/setup-java@v2
         with:
@@ -28,10 +19,27 @@ jobs:
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
+      - id: install-secret-key
+        name: Install gpg secret key
+        run: |
+          cat <(echo -e "${{ secrets.GPG_PRIVATE_KEY }}") | gpg --batch --import
+          gpg --list-secret-keys --keyid-format LONG
       - name: Release Maven package
-        uses: samuelmeuli/action-maven-publish@v1
+        env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+        run: |
+          mvn \
+            --no-transfer-progress \
+            --batch-mode \
+            -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }} \
+            clean deploy
+      - name: Set up Java for publishing to GitHub Packages
+        uses: actions/setup-java@v2
         with:
-#          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-#          gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
-          nexus_username: ${{ secrets.OSSRH_USERNAME }}
-          nexus_password: ${{ secrets.OSSRH_TOKEN }}
+          java-version: '8'
+          distribution: 'adopt'
+      - name: Publish to GitHub Packages
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

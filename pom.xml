@@ -9,7 +9,7 @@
 
     <groupId>vip.appcity</groupId>
     <artifactId>celery-spring-boot-starter</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>celery-spring-boot-starter</name>
@@ -124,7 +124,7 @@
                 </executions>
             </plugin>
             <!-- GPG plugin -->
-            <!--<plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>1.6</version>
@@ -136,15 +136,15 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
-                            &lt;!&ndash; Prevent `gpg` from using pinentry programs &ndash;&gt;
+                            <!-- Prevent `gpg` from using pinentry programs -->
                             <gpgArguments>
-                                <arg>&#45;&#45;pinentry-mode</arg>
+                                <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
                             </gpgArguments>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
         </plugins>
     </build>
     <distributionManagement>

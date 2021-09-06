@@ -18,7 +18,7 @@ to run a Java client with a Python worker or vice-versa. Tested with Python Cele
 ## Maven dependency
 
 Releases are available from Maven Central. Latest version: [![Maven
-Central](https://maven-badges.herokuapp.com/maven-central/com.geneea.celery/celery-java/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.geneea.celery%22%20AND%20a%3A%22celery-java%22)
+Central](https://maven-badges.herokuapp.com/maven-central/vip.appcity/celery-spring-boot-starter/badge.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22vip.appcity%22%20AND%20a%3A%celery-spring-boot-starter%22)
 
 ```xml
 <dependency>
