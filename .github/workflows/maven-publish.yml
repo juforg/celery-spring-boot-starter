@@ -32,7 +32,7 @@ jobs:
           mvn \
             --no-transfer-progress \
             --batch-mode \
-            -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }} \
+            -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}" \
             clean deploy
       - name: Set up Java for publishing to GitHub Packages
         uses: actions/setup-java@v2
