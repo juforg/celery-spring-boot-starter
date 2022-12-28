@@ -28,7 +28,7 @@ Central](https://maven-badges.herokuapp.com/maven-central/vip.appcity/celery-spr
 </dependency>
 ```
 
-Snapshots are available from [Sonatype OSRH](https://oss.sonatype.org/content/groups/public):
+Snapshots are available from [Sonatype OSRH](https://s01.oss.sonatype.org//content/groups/public):
 
 ```xml
 <repository>

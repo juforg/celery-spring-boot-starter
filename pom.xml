@@ -9,7 +9,7 @@
 
     <groupId>vip.appcity</groupId>
     <artifactId>celery-spring-boot-starter</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
 
     <name>celery-spring-boot-starter</name>
@@ -54,7 +54,7 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.geneea.celery</groupId>
+            <groupId>vip.appcity</groupId>
             <artifactId>celery-java</artifactId>
             <version>1.10.4</version>
             <exclusions>
