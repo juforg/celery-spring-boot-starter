@@ -42,7 +42,7 @@ Snapshots are available from [Sonatype OSRH](https://s01.oss.sonatype.org//conte
 ```
 
 
-## init config int application.yml
+## init config in application.yml
 ```yaml
 celery:
   queue: "demo:celery"
@@ -67,13 +67,34 @@ celery:
         private Celery celery;
         celery.submit("test.dummy_task", new Object[]{1});
     ```
-
+## enable multi queue
+1. init config in application.yml
+```yaml
+celery:
+  enabled: true
+  enableMultiQueue: true
+  queue: "demo:celery"
+  broker: amqp://guest:guest@localhost:5672/vhost
+#  backend:
+  taskQueueMaps:
+     "test.dummy_task": "celery"
+     "test.dummy_task2": "celery"
+     "test.dummy_task3": "celery1"
+     "test.dummy_task4": "celery2"
+```
+3. Call the task by name in java
+    ```java
+    
+        @Autowired
+        private CeleryTaskProducer celeryTaskProducer;
+        celeryTaskProducer.submit("test.dummy_task", new Object[]{1});
+    ```
 
 ## Relase notes
 
 
 * 1.0 - Initial release. enable to call  Python task from Java without result.
-
+* 1.1 - add support for multi queue 
 
 [celery-py-start]: http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html
 [celery]: http://www.celeryproject.org/
