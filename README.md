@@ -86,8 +86,8 @@ celery:
     ```java
     
         @Autowired
-        private CeleryTaskProducer celeryTaskProducer;
-        celeryTaskProducer.submit("test.dummy_task", new Object[]{1});
+        private CeleryTaskDistributor celeryTaskDistributor;
+        celeryTaskDistributor.submit("test.dummy_task", new Object[]{1});
     ```
 
 ## Relase notes

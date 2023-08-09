@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.util.StringUtils;
 import vip.appcity.celery.Celery;
-import vip.appcity.celery.CeleryTaskProducer;
+import vip.appcity.celery.CeleryTaskDistributor;
 import vip.appcity.celery.starter.properties.CeleryProperties;
 
 /**
@@ -56,14 +56,14 @@ public class CeleryAutoConfiguration {
     @Bean
     @DependsOn("getCelery")
     @ConditionalOnProperty(value = "celery.enableMultiQueue", havingValue = "true", matchIfMissing = false)
-    public CeleryTaskProducer getCeleryTaskProducer(CeleryProperties celeryProperties, Celery defaultCelery){
+    public CeleryTaskDistributor getCeleryTaskDistributor(CeleryProperties celeryProperties, Celery defaultCelery){
         log.info("[celery] enable multi queue");
-        CeleryTaskProducer celeryTaskProducer = new CeleryTaskProducer();
-        celeryTaskProducer.setTaskQueueMaps(celeryProperties.getTaskQueueMaps());
-        celeryTaskProducer.setBroker(celeryProperties.getBroker());
-        celeryTaskProducer.setBackend(celeryProperties.getBackend());
-        celeryTaskProducer.setDefaultQueueName(celeryProperties.getQueue());
-        celeryTaskProducer.addQueueClient(celeryProperties.getQueue(), defaultCelery);
-        return celeryTaskProducer;
+        CeleryTaskDistributor celeryTaskDistributor = new CeleryTaskDistributor();
+        celeryTaskDistributor.setTaskQueueMaps(celeryProperties.getTaskQueueMaps());
+        celeryTaskDistributor.setBroker(celeryProperties.getBroker());
+        celeryTaskDistributor.setBackend(celeryProperties.getBackend());
+        celeryTaskDistributor.setDefaultQueueName(celeryProperties.getQueue());
+        celeryTaskDistributor.addQueueClient(celeryProperties.getQueue(), defaultCelery);
+        return celeryTaskDistributor;
     }
 }
