@@ -43,7 +43,16 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <celery-java.version>1.11.0-SNAPSHOT</celery-java.version>
     </properties>
-
+    <repositories>
+        <repository>
+            <id>sonatype</id>
+            <name>sonatype Repository</name>
+            <url>https://s01.oss.sonatype.org/content/groups/public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

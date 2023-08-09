@@ -54,8 +54,8 @@ public class CeleryAutoConfiguration {
     }
 
     @Bean
-    @DependsOn({"celery"})
-    @ConditionalOnProperty(value = "snp.enableMultiQueue", havingValue = "true", matchIfMissing = false)
+    @DependsOn("getCelery")
+    @ConditionalOnProperty(value = "celery.enableMultiQueue", havingValue = "true", matchIfMissing = false)
     public CeleryTaskProducer getCeleryTaskProducer(CeleryProperties celeryProperties, Celery defaultCelery){
         log.info("[celery] enable multi queue");
         CeleryTaskProducer celeryTaskProducer = new CeleryTaskProducer();
