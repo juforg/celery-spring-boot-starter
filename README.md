@@ -63,7 +63,7 @@ celery:
 3. Call the task by name in java
     ```java
     
-        @Autowired
+        @Resource
         private Celery celery;
         celery.submit("test.dummy_task", new Object[]{1});
     ```
@@ -85,7 +85,7 @@ celery:
 3. Call the task by name in java
     ```java
     
-        @Autowired
+        @Resource
         private CeleryTaskDistributor celeryTaskDistributor;
         celeryTaskDistributor.submit("test.dummy_task", new Object[]{1});
     ```
