@@ -9,7 +9,7 @@ which is Java implementation of [Celery](https://docs.celeryproject.org/en/v5.1.
 
 >  Celery is used in production systems to process millions of tasks a day.
 
-For more info, [celery-java](https://github.com/crabhi/celery-java)
+For more info, [celery-java](https://github.com/juforg/celery-java)
 
 The aim is to be compatible with existing [Python Celery implementation][celery]. That means you should be able
 to run a Java client with a Python worker or vice-versa. Tested with Python Celery 5.1.
