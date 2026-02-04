@@ -9,7 +9,7 @@
 
     <groupId>vip.appcity</groupId>
     <artifactId>celery-spring-boot-starter</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
     <name>celery-spring-boot-starter</name>
@@ -41,7 +41,7 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <celery-java.version>1.11.0-SNAPSHOT</celery-java.version>
+        <celery-java.version>1.11.0</celery-java.version>
     </properties>
     <repositories>
         <repository>
